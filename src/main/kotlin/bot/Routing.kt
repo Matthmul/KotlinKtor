@@ -88,8 +88,8 @@ fun Application.configureRouting() {
         post("/products") {
             val formParameters = call.receiveParameters()
             var id = formParameters["text"]
-            if (id == null) {
-                id = "-420"
+            if (id == null || id == "") {
+                id = "-1"
             }
 
             call.respondText(returnCategoriesItmes(id))
